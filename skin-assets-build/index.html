@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    #base-container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        left: 0;
+        top: 0;
+    }
+    
+     :root{
+        background-color: black;
+        --leftBackgroundSkin: url('panels/background-left.png');
+        --rightBackgroundSkin: url('panels/background-right.png');
+        --hopperDiv: url('panels/hopper.png');
+        --mikeDiv: url('panels/mike.png');
+        --ctaBottom: url('panels/cta-bottom.png');
+        --ctaTop: url('panels/cta-top.png');
+        --headBanner: url('topbanner/topbanner-background.png');
+        --elevenImg: url('topbanner/eleven.png');
+        --ctaHead: url('topbanner/ctahead.png');
+    }
+    #banner-skin{
+            background-image: var(--headBanner);
+            background-color: red;
+            position: fixed;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 980px;
+            height: 250px;
+            top: 0px;
+            margin: auto;
+            left: 0px;
+            right: 0px;
+    }
+    #banner-holder{
+        width: 980px;
+        max-width: 100%;
+        position: absolute;
+        height: 100%;
+    }
+    #topCA1{
+        background-image: var(--elevenImg);
+        position: fixed;
+        background-repeat: no-repeat;
+        width: 330px;
+        height: 240px;
+        top: 12px;
+    }
+    #topCA2{
+        background-image: var(--ctaHead);
+        position: fixed;
+        background-repeat: no-repeat;
+        width: 233px;
+        height: 145px;
+        top: 67px;
+        margin-left: 700px;
+    }
+
+    #left-skin{
+            background-image: var(--leftBackgroundSkin);
+            position: fixed;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position-x: right;
+            width: calc((100% - 1000px)/2);
+            height: 1000px;
+            max-width: 1980px;
+            top: 0px;
+            left: 0px;
+        }
+        #leftHolderCon{
+            width: 493px;
+            max-width: 100%;
+            position: absolute;
+            height: 100%;
+            margin: auto;
+            right: 0;
+        }
+        #rightHolderCon{
+            width: 493px;
+            max-width: 100%;
+            position: absolute;
+            height: 100%;
+            left: 0;
+        }
+    
+    #right-skin{
+            background-image: var(--rightBackgroundSkin);
+            position: fixed;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: calc((100% - 1000px)/2);
+            height: 1000px;
+            max-width: 1980px;
+            top: 0px;
+            right: 0px;
+    }
+    #leftCA1{
+            background-image: var(--hopperDiv);
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position-x: right;
+            width: 70%;
+            transition: 1s;
+            min-height: 700px;
+            bottom: 0px;
+            margin: auto;
+            left: 0px;
+            right: 0px;
+    }
+    #rightCA1{
+            background-image: var(--mikeDiv);
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position-x: left;
+            width: 70%;
+            transition: 1s;
+            min-height: 700px;
+            bottom: 0px;
+            margin: auto;
+            left: 0px;
+            right: 0px;
+    }
+    #leftCA1:hover, #rightCA1:hover {
+        transform: scale(1.2);
+        z-index: 2;
+    }
+
+
+    #leftCA2, #rightCA2{
+        background-image: var(--ctaBottom);
+        background-size: 100%;
+        position: absolute;
+        background-repeat: no-repeat;
+        width: 55%;
+        min-height: 210px;
+        margin-top: 600px;
+        margin: auto;
+        left: 0px;
+        right: 0px;
+        bottom: 180px;
+}
+    
+    #leftCA3, #rightCA3{
+        background-image: var(--ctaTop);
+        background-size: 100%;
+        position: absolute;
+        background-repeat: no-repeat;
+        width: 55%;
+        min-height: 50px;
+        margin: auto;
+        left: 0px;
+        right: 0px;
+        top: 70px;
+    }
+
+/* #firework{
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    margin: auto;
+    margin-top: 100px;
+    overflow: hidden;
+} */
+
+/* //these keyframes are for 'times up' */
+@keyframes drop-in {
+    from {
+      transform:
+        rotate(0deg) translateY(1000%);
+      opacity: 0;
+    }
+    to {
+      transform:
+        rotate(0deg) translateY(0%);
+      opacity: 1;
+    }
+  }
+  #leftCA2, #rightCA2{
+    opacity: 0.8;
+    animation: fade 2s infinite;
+}
+
+/* fade animation for StrangerThings tag */
+@keyframes fade {
+  0%,100% { opacity: 0.8 }
+  10% { opacity: 0.1 }
+  20% { opacity: 0.2 }
+  30% { opacity: 0.3 }
+  40% { opacity: 0.4 }
+  30% { opacity: 0.5 }
+  20% { opacity: 0.6 }
+  10% { opacity: 0.7 }
+}
+
+  #leftCA3{
+    animation: drop-in 3000ms;
+  }
+
+  @keyframes drop-in2 {
+    from {
+      transform:
+        rotate(0deg) translateY(1000%);
+      opacity: 0;
+    }
+    to {
+      transform:
+        rotate(0deg) translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  #rightCA3{
+    animation: drop-in2 3000ms;
+  }
+
+  @media screen and (max-width: 1300px) {
+    #left-skin {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #right-skin {
+        display: none;
+    }
+}
+
+</style>
+<body>
+    <script>
+        
+var mainCon = parent.document.createElement('div');
+              mainCon.id = 'base-container';
+              parent.document.body.appendChild(mainCon);
+
+var topContainer = parent.document.createElement('div');
+                   topContainer.id = 'banner-skin';
+                   mainCon.appendChild(topContainer);
+
+var bannerHolder = parent.document.createElement('div');
+                   bannerHolder.id = 'banner-holder';
+                   topContainer.appendChild(bannerHolder);
+
+var topCon1 = parent.document.createElement('div');
+              topCon1.id = 'topCA1';
+              bannerHolder.appendChild(topCon1);
+
+var topCon2 = parent.document.createElement('div');
+              topCon2.id = 'topCA2';
+              bannerHolder.appendChild(topCon2);
+
+var leftContainer = parent.document.createElement('div');
+                    leftContainer.id = 'left-skin';
+                    mainCon.appendChild(leftContainer);
+
+var leftHolder = parent.document.createElement('div');
+                 leftHolder.id = 'leftHolderCon';
+                 leftContainer.appendChild(leftHolder);
+
+var leftCon1 =  parent.document.createElement('div');
+                leftCon1.id = 'leftCA1';
+                leftHolder.appendChild(leftCon1);
+
+var leftCon2 =  parent.document.createElement('div');
+                leftCon2.id = 'leftCA2';
+                leftHolder.appendChild(leftCon2);
+
+var leftCon3 =  parent.document.createElement('div');
+                leftCon3.id = 'leftCA3';
+                leftHolder.appendChild(leftCon3);
+                
+var rightContainer = parent.document.createElement('div');
+                     rightContainer.id = 'right-skin';
+                     mainCon.appendChild(rightContainer);
+
+var rightHolder = parent.document.createElement('div');
+                  rightHolder.id = 'rightHolderCon';
+                  rightContainer.appendChild(rightHolder);
+
+var rightCon1 =  parent.document.createElement('div');
+                 rightCon1.id = 'rightCA1';
+                 rightHolder.appendChild(rightCon1);
+
+var rightCon2 =  parent.document.createElement('div');
+                 rightCon2.id = 'rightCA2';
+                 rightHolder.appendChild(rightCon2);
+
+var rightCon3 =  parent.document.createElement('div');
+                 rightCon3.id = 'rightCA3';
+                 rightHolder.appendChild(rightCon3);
+
+// var canvas = parent.document.createElement('canvas');
+//                 canvas.id = 'canvas';
+//                 leftHolder.appendChild(canvas);
+                //rightHolder.appendChild(canvas);
+                
+
+    </script>
+</div>
+</body>
+
+</html>
